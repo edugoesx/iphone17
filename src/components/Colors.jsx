@@ -1,6 +1,5 @@
 import { useState } from "react";
 
-
 function Colors() {
 
     const colors = [
@@ -16,19 +15,18 @@ function Colors() {
 
     const [selectedColor, setSelectedColor] = useState('blue')
 
-
     return (
         <section id="colors" className="bg-black py-20 px-8">
             <div className="max-w-7xl mx-auto">
                 <div className="text-center mb-16">
-                    <h2 className="text-5xl mb:text-6xl font-bold mb-4">Cor. Escolha sua favorita.</h2>
+                    <h2 className="text-5xl md:text-6xl font-bold mb-4">Cor. Escolha sua favorita.</h2>
                     <p></p>
                 </div>
 
             <div className="flex justify-center mb-12">
                 <div className="relative w-full max-w-3xl">
-                    <div className="relative flex items-center justify-center min-h[500px]">
-                        <img src={colors.find(color => color.id === selectedColor).image} alt="iphone 17" className="max-w-full max-h-[600px] mx-auto"></img>
+                    <div className="relative flex items-center justify-center min-h-[500px]">
+                        <img src={colors.find(color => color.id === selectedColor).image} alt="iphone 17" className="max-w-full max-h-[500px] md:max-h-[600px] mx-auto object-contain transition-opacity duration-500"></img>
                     </div>
 
                     <div className="absolute bottom-8 left-0 right-0 text-center">
@@ -44,13 +42,13 @@ function Colors() {
             <div className="flex justify-center items-center gap-4">
                 {colors.map(color => (
                     <button key={color.id} onClick={() => setSelectedColor(color.id)} className={`relative transition-all duration-300 cursor-pointer`}>
-                        <div className={`w-16 h-16 rounded-full border-3 ${color.colorClass} ${selectedColor === color.id ? 'border-white' : 'border-gray-600'}`}></div>
+                        <div className={`w-12 h-12 md:w-16 md:h-16 rounded-full border-4 ${color.colorClass} ${selectedColor === color.id ? 'border-white' : 'border-gray-600'}`}></div>
                     </button>
                 ))}
             </div>
 
 
-            <div className="grid gap-8 mt-20 grid-cols-2">
+            <div className="grid gap-8 mt-20 grid-cols-1 md:grid-cols-2">
                 {models.map((model, index) => (
                     <div key={index} className="bg-gradient-to-br from-gray-900 to-transparent rounded-3xl p-8 border border-gray-800">
                         <h3 className="text-2xl font-bold mb-3">{model.name}</h3>
